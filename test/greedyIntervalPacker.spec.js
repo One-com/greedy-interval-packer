@@ -1,30 +1,6 @@
 var intervalPacker = require('../lib/greedyIntervalPacker');
-
-function parseInterval(intervalDefinition) {
-    var m =  /\[(\d+);(\d+)\)/.exec(intervalDefinition);
-    return { start: parseInt(m[1], 10), end: parseInt(m[2], 10) };
-}
-
 var expect = require('unexpected').clone()
-    .addType({
-        name: 'interval',
-        identify: function (value) {
-            return typeof value.start === 'number' && typeof value.end === 'number';
-        },
-        inspect: function (value, depth, output) {
-            output.text('[').number(value.start).text(';').number(value.end).text(')');
-        },
-        equal: function (a, b) {
-            return a === b || (a.start === b.start && a.end === b.end);
-        }
-    })
-    .addAssertion('array', 'to be partitioned as', function (expect, subject, partitioning) {
-        this.errorMode = 'nested';
-        var intervals = subject.map(parseInterval);
-        expect(intervalPacker(intervals), 'to equal', partitioning.map(function (partition) {
-            return partition.map(parseInterval);
-        }));
-    });
+    .installPlugin(require('./unexpected-intervals'));
 
 describe('greedy-interval-packer', function () {
     it('throws when given anything other than an array', function () {
