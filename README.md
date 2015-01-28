@@ -6,6 +6,7 @@ with no overlapping intervals.
 Intervals are just objects with integer properties for `start` and
 `end` where `start < end`.
 
+[![Build Status](https://travis-ci.org/One-com/greedy-interval-packer.svg)](https://travis-ci.org/One-com/greedy-interval-packer)
 
 ## Usage
 
