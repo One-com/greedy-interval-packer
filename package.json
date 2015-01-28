@@ -1,0 +1,30 @@
+{
+  "name": "gready-interval-packer",
+  "version": "1.0.0",
+  "description": "Pack integer intervals using a gready algorithm",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/One-com/gready-interval-packer"
+  },
+  "keywords": [
+    "interval",
+    "packing"
+  ],
+  "author": "Sune Simonsen <sss@one.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/One-com/gready-interval-packer/issues"
+  },
+  "homepage": "https://github.com/One-com/gready-interval-packer",
+  "devDependencies": {
+    "mocha": "2.1.0",
+    "unexpected": "5.8.0"
+  }
+}
