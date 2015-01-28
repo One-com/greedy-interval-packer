@@ -6,7 +6,11 @@ with no overlapping intervals.
 Intervals are just objects with integer properties for `start` and
 `end` where `start < end`.
 
+[![npm version](https://badge.fury.io/js/greedy-interval-packer.svg)](http://badge.fury.io/js/greedy-interval-packer)
 [![Build Status](https://travis-ci.org/One-com/greedy-interval-packer.svg)](https://travis-ci.org/One-com/greedy-interval-packer)
+[![Coverage Status](https://coveralls.io/repos/One-com/greedy-interval-packer/badge.svg)](https://coveralls.io/r/One-com/greedy-interval-packer)
+[![Dependency Status](https://david-dm.org/One-com/greedy-interval-packer.svg)](https://david-dm.org/One-com/greedy-interval-packer)
+[![devDependency Status](https://david-dm.org/One-com/greedy-interval-packer/dev-status.svg)](https://david-dm.org/One-com/greedy-interval-packer#info=devDependencies)
 
 ## Usage
 
