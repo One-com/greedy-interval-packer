@@ -6,73 +6,6 @@ with no overlapping intervals.
 Intervals are just objects with integer properties for `start` and
 `end` where `start < end`.
 
-## Installation
-
-### Node
-
-Install it with NPM or add it to your `package.json`:
-
-```
-$ npm install greedy-interval-packer
-```
-
-Then:
-
-```js
-var intervalPacker = require('greedy-interval-packer');
-
-expect(intervalPacker([
-    { start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' },
-    { start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }
-]), 'to equal', [
-    [{ start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' }],
-    [{ start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }]
-]);
-```
-
-### Browser
-
-Include `greedy-interval-packer.js`.
-
-```html
-<script src="greedy-interval-packer.js"></script>
-```
-
-this will expose the `greedyIntervalPacker` function under the following namespace:
-
-```js
-var intervalPacker = com.one.greedyIntervalPacker;
-
-expect(intervalPacker([
-    { start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' },
-    { start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }
-]), 'to equal', [
-    [{ start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' }],
-    [{ start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }]
-]);
-```
-
-### RequireJS
-
-Include the library with RequireJS the following way:
-
-```js
-require.config({
-    paths: {
-        greedyIntervalPacker: 'path/to/greedy-interval-packer'
-    }
-});
-
-define(['greedyIntervalPacker'], function (intervalPacker) {
-    expect(intervalPacker([
-        { start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' },
-        { start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }
-    ]), 'to equal', [
-        [{ start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' }],
-        [{ start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }]
-    ]);
-});
-```
 
 ## Usage
 
@@ -94,6 +27,104 @@ expect(intervalPacker([
     [{ start: 3, end: 5, value: '6' }],
     [{ start: 3, end: 4, value: '7' }, { start: 4, end: 5, value: '8' }]
 ]);
+```
+
+## Installation
+
+### Node
+
+Install it with NPM or add it to your `package.json`:
+
+```
+$ npm install greedy-interval-packer
+```
+
+Then:
+
+```js
+var intervalPacker = require('greedy-interval-packer');
+
+expect(intervalPacker([
+    { start: 0, end: 2, value: '0' },
+    { start: 3, end: 6, value: '1' },
+    { start: 6, end: 10, value: '2' },
+    { start: 3, end: 5, value: '3' },
+    { start: 6, end: 8, value: '4' }
+]), 'to equal', [
+    [
+        { start: 0, end: 2, value: '0' },
+        { start: 3, end: 6, value: '1' },
+        { start: 6, end: 10, value: '2' }
+    ],
+    [
+        { start: 3, end: 5, value: '3' },
+        { start: 6, end: 8, value: '4' }
+    ]
+]);
+```
+
+### Browser
+
+Include `greedy-interval-packer.js`.
+
+```html
+<script src="greedy-interval-packer.js"></script>
+```
+
+this will expose the `greedyIntervalPacker` function under the following namespace:
+
+```js
+var intervalPacker = com.one.greedyIntervalPacker;
+
+expect(intervalPacker([
+    { start: 0, end: 2, value: '0' },
+    { start: 3, end: 6, value: '1' },
+    { start: 6, end: 10, value: '2' },
+    { start: 3, end: 5, value: '3' },
+    { start: 6, end: 8, value: '4' }
+]), 'to equal', [
+    [
+        { start: 0, end: 2, value: '0' },
+        { start: 3, end: 6, value: '1' },
+        { start: 6, end: 10, value: '2' }
+    ],
+    [
+        { start: 3, end: 5, value: '3' },
+        { start: 6, end: 8, value: '4' }
+    ]
+]);
+```
+
+### RequireJS
+
+Include the library with RequireJS the following way:
+
+```js
+require.config({
+    paths: {
+        greedyIntervalPacker: 'path/to/greedy-interval-packer'
+    }
+});
+
+define(['greedyIntervalPacker'], function (intervalPacker) {
+    expect(intervalPacker([
+        { start: 0, end: 2, value: '0' },
+        { start: 3, end: 6, value: '1' },
+        { start: 6, end: 10, value: '2' },
+        { start: 3, end: 5, value: '3' },
+        { start: 6, end: 8, value: '4' }
+    ]), 'to equal', [
+        [
+            { start: 0, end: 2, value: '0' },
+            { start: 3, end: 6, value: '1' },
+            { start: 6, end: 10, value: '2' }
+        ],
+        [
+            { start: 3, end: 5, value: '3' },
+            { start: 6, end: 8, value: '4' }
+        ]
+    ]);
+});
 ```
 
 ## License
