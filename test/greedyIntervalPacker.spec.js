@@ -115,5 +115,22 @@ describe('greedy-interval-packer', function () {
             [{ start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' }],
             [{ start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }]
         ]);
+
+        expect(intervalPacker([
+            { start: 0, end: 2, value: '0' }, { start: 3, end: 6, value: '1' }, { start: 6, end: 10, value: '2' },
+            { start: 3, end: 5, value: '3' }, { start: 6, end: 8, value: '4' }
+        ], { groupPartitions: true }), 'to equal', [
+            [
+                [{ start: 0, end: 2, value: '0' }]
+            ],
+            [
+                [{ start: 3, end: 6, value: '1' }],
+                [{ start: 3, end: 5, value: '3' }]
+            ],
+            [
+                [{ start: 6, end: 10, value: '2' }],
+                [{ start: 6, end: 8, value: '4' }]
+            ]
+        ]);
     });
 });
